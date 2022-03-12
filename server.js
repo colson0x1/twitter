@@ -2,11 +2,15 @@ const express = require('express');
 const app = express();
 const port = 3000;
 const path = require('path');
+const bodyParser = require('body-parser');
 
 const middleware = require('./middleware');
 
 app.set("view engine", "pug");
 app.set("views", "views");
+
+app.use(bodyParser.urlencoded({ extended: false }));
+
 
 app.use(express.static(path.join(__dirname, "public")));
 
