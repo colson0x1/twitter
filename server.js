@@ -34,7 +34,8 @@ const server = app.listen(port, (req, res) => {
 
 app.get('/', middleware.requireLogin, (req, res) => {
     let payload = {
-        pageTitle: "Home"
+        pageTitle: "Home",
+        userLoggedIn: req.session.user
     }
     res.status(200).render("home", payload);
 })
