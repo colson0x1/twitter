@@ -4,6 +4,7 @@ const port = 3000;
 const path = require('path');
 const bodyParser = require('body-parser');
 const mongoose = require('./database');
+const session = require('express-session');
 
 const middleware = require('./middleware');
 
@@ -11,9 +12,13 @@ app.set("view engine", "pug");
 app.set("views", "views");
 
 app.use(bodyParser.urlencoded({ extended: false }));
-
-
 app.use(express.static(path.join(__dirname, "public")));
+
+app.use(session({
+    secret: "i love molly, whiskey & $$$$$$$",
+    resave: true,
+    saveUninitialized: false
+}))
 
 // @routes
 const loginRoute = require('./routes/loginRoutes');
