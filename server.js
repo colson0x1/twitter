@@ -3,6 +3,7 @@ const app = express();
 const port = 3000;
 const path = require('path');
 const bodyParser = require('body-parser');
+const mongoose = require('./database');
 
 const middleware = require('./middleware');
 
@@ -23,7 +24,7 @@ app.use('/register', registerRoute);
 
 
 const server = app.listen(port, (req, res) => {
-    console.log(`server running on port ${port}`);
+    console.log(`Server running on port ${port}`);
 })
 
 app.get('/', middleware.requireLogin, (req, res) => {
