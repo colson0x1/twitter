@@ -23,10 +23,11 @@ app.use(session({
 // @routes
 const loginRoute = require('./routes/loginRoutes');
 const registerRoute = require('./routes/registerRoutes');
+const logoutRoute = require('./routes/logout');
 
 app.use('/login', loginRoute);
 app.use('/register', registerRoute);
-
+app.use('/logout', logoutRoute);
 
 const server = app.listen(port, (req, res) => {
     console.log(`Server running on port ${port}`);
