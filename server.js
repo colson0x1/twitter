@@ -25,9 +25,14 @@ const loginRoute = require('./routes/loginRoutes');
 const registerRoute = require('./routes/registerRoutes');
 const logoutRoute = require('./routes/logout');
 
+// @api routes
+const postsApiRoute = require('./routes/api/posts');
+
 app.use('/login', loginRoute);
 app.use('/register', registerRoute);
 app.use('/logout', logoutRoute);
+
+app.use('/api/posts', postsApiRoute);
 
 const server = app.listen(port, (req, res) => {
     console.log(`Server running on port ${port}`);
