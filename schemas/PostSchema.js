@@ -10,7 +10,8 @@ const PostSchema = new Schema({
     postedBy: { 
         type: Schema.Types.ObjectId, ref: 'User'
     },
-    pinned: Boolean
+    pinned: Boolean,
+    likes: [{ type: Schema.Types.ObjectId, ref: 'User' }]
 }, { timestamps: true });
 
 let Post = mongoose.model('Post', PostSchema);
